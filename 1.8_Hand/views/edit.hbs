@@ -1,0 +1,95 @@
+{{#extends "base"}}
+
+{{#block "content"}}
+<h1>Update ITEMS</h1>
+<form method="POST">
+    <div>
+        <label>Title:</label>
+        <input type="text" 
+           class="form-control" 
+           name="title" 
+           value="{{record.title}}" />
+    </div>
+
+    <div>
+        <label>Price:</label>
+        <input type="number" 
+        class="form-control" 
+        name="price"
+        value="{{record.price}}"
+        />
+    </div>
+
+    <div>
+        <label>Payments</label>
+        <input type="checkbox" 
+            class="form-check-input"
+            name="payments"
+            value="cod"
+            {{#inArray record.payments "cod"}}checked{{/inArray}}
+            />
+        <label>cod</label>
+
+        <input type="checkbox"
+         class="form-check-input"
+          name="payments" 
+          value="cheque"
+          {{#inArray record.payments "cheque"}}checked{{/inArray}}
+          />
+        <label>cheque</label>
+
+        <input type="checkbox" 
+        class="form-check-input"
+         name="payments"
+          value="paynow"
+          {{#inArray record.payments "paynow"}}checked{{/inArray}}
+          />
+        <label>paynow</label>
+
+    </div>
+
+    <div>
+        <label>Type:</label>
+        <input type="radio" 
+             class="form-check-input" 
+             name="type"
+            value="electronic"
+            {{#eq record.type "electronic"}}checked{{/eq}}
+            />
+        <label>Electronic</label>
+
+        <input type="radio" 
+            class="form-check-input"
+            name="type" 
+            value="entertainment"
+            {{#eq record.type "entertainment"}}checked{{/eq}}
+            />
+        <label>Entertainment</label>
+
+        <input type="radio" 
+            class="form-check-input"
+            name="type" 
+            value="clothings"
+        {{#eq record.type "clothings"}}checked{{/eq}}
+            />
+        <label>Clothings</label>
+
+        <input type="radio" 
+            class="form-check-input"
+            name="type" 
+            value="others"
+        {{#eq record.type "others"}}checked{{/eq}}
+            />
+        <label>others</label>
+
+    </div>
+
+    
+
+
+    {{!-- The submit button allows us to submit a form to a server --}}
+    <input type="submit"/>
+</form>
+{{/block}}
+
+{{/extends}}

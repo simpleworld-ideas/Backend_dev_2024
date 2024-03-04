@@ -43,6 +43,45 @@ app.post('/booking', function(req,res){
     console.log(req.body);
 })
 
+app.get('/delete-food/:foodid', function(req,res){
+    const idToDelete = req.params.foodid;
+
+    // linear search algo
+    let wantedFoodRecord = null;
+    for (let record of foodRecords) {
+        if (record.id == idToDelete) {
+            wantedFoodRecord = record;
+            break;
+        }
+    }
+
+    res.render('confirm-delete', {
+        "record": wantedFoodRecord
+    })
+})
+
+app.post('/delete-food/:foodid', function(req,res){
+    // we need to know the index of the element
+    // that we want to delete
+    const idToDelete = req.params.foodid;
+
+    // find the index of the food record
+    let indexToDelete = -1;
+    for (let i = 0; i < foodRecords.length; i++) {
+        if (foodRecords[i].id == idToDelete) {
+            indexToDelete = i;
+            break;
+        }
+    }
+
+    // use splice to delete an index from an array
+    // splice has 2 parameters:
+    // parameter 1: the index to start deleting from
+    // parameter 2: how many to delete 
+    foodRecords.splice(indexToDelete, 1);
+    res.redirect('/');
+})
+
 // 3. START SERVER
 app.listen(3004, function(){
     console.log("Server has started")

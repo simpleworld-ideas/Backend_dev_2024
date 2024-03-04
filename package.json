@@ -1,0 +1,16 @@
+{
+  "name": "backend_dev_2024",
+  "version": "1.0.0",
+  "description": "sdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "akbar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "hbs": "^4.2.0",
+    "wax-on": "^1.2.2"
+  }
+}

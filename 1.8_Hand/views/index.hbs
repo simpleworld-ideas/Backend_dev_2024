@@ -1,0 +1,48 @@
+{{#extends 'base'}}
+
+{{#block "content"}}
+<h1>Second Chance Second Hand Sales</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Payments</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.payments}}</td>
+                <td>{{this.type}}</td>
+                <td>
+                <a href="/delete-food/{{this.id}}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+            <td>
+                <a href="/create-listing" class="btn btn-warning btn-sm">Create</a>
+            </td>
+
+            <td>
+                <a href="/edit-item/{{this.id}}" class="btn btn-success btn-sm">Edit</a>
+            </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    
+  <button type="button" class="btn btn-primary"><a class="btn-primary active" href="/create-listing">Add</a></button>
+    
+
+
+
+
+{{/block}}
+
+{{/extends}}
